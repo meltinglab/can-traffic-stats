@@ -1,6 +1,9 @@
-function BS = stuff(ID)
+function [BS, ln] = stuff(ID)
 
 % ID = [0 0 0 0 0  1 1 1 1 1 1];
+
+l = length(ID);
+k = 0;
 
 if ID(1) == 0
     num0 = 1;
@@ -26,13 +29,16 @@ for i = 2:length(ID)
     if num0 == 5
         ID = [ID(1:i) 1 ID(i+1:end)];
         num0 = 0;
+        k = k+1;
     end
     if num1 == 5
         ID = [ID(1:i) 0 ID(i+1:end)];
         num1 = 0;
+        k = k+1;
     end
 end
 
+ln = l+k;
 BS = ID;
 
 end
