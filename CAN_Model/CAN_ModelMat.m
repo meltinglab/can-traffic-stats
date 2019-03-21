@@ -15,8 +15,10 @@ NodesID = [ 0,0,1,1,0,1,1,0,0,1,1
             0,0,1,1,0,1,1,0,0,1,0
             0,0,1,0,0,1,1,0,1,1,0
             0,0,1,1,1,1,1,0,0,1,0];
+        
+RandPayload = randi([0,1],1, 64);
 
-BusLoadInserted = 85;
+BusLoadInserted = 80;
 
 NumOfFrame_Max = SimTime / (CLK * FrameLenght);
 
