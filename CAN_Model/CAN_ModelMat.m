@@ -2,23 +2,22 @@
 clc
 clear
 
-FrameLenght = 111;
+FrameLenght = 110;
 SimTime = 0.1;
 CLK = 0.000002;
 
 NodeTiming = 0.01;
 time = NodeTiming / CLK;
 
-ID = [1,0,0,0,0,1,1,0,0,1,0];
+ID = [0,0,0,0,0,1,1,0,0,1,0];
 
 NodesID = [ 0,0,1,1,0,1,1,0,0,1,1
             0,0,1,1,0,1,1,0,0,1,0
             0,0,1,0,0,1,1,0,1,1,0
             0,0,1,1,1,1,1,0,0,1,0];
         
-RandPayload = randi([0,1],1, 64);
 
-BusLoadInserted = 80;
+BusLoadInserted = 90;
 
 NumOfFrame_Max = SimTime / (CLK * FrameLenght);
 
