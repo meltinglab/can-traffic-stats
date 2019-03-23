@@ -3,10 +3,10 @@ clc
 clear
 
 FrameLenght = 110;
-SimTime = 1;
-CLK = 0.00002;
+SimTime = 100;
+CLK = 0.2;
 
-NodeTiming = 0.1;
+NodeTiming = 0.01;
 time = NodeTiming / CLK;
 
 ID = [0,0,0,0,0,0,0,0,0,0,0];
@@ -50,7 +50,7 @@ NodesID = [ 0,0,1,1,0,1,1,0,0,1,1
 %             0,0,0,0,0,0,1,1,1,1,1]
         
 
-BusLoadInserted = 1;
+BusLoadInserted = 50;
 
 NumOfFrame_Max = SimTime / (CLK * FrameLenght);
 
