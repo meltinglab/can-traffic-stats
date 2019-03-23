@@ -1,0 +1,16 @@
+function [Results]=delayCounter(TxTimings, RxTimings, CLK)
+  A = getdatasamples(TxTimings, 200000);
+  B = getdatasamples(RxTimings, 200000);
+  
+  Temp = (B - A) * CLK;
+  Temp = Tem
+  for i = 1 : length(Temp)
+      if Temp(i) > 0
+          Results(i) = Temp(i);
+      else
+          break;
+      end
+  end
+end
+
+

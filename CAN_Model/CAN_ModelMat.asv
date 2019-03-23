@@ -3,19 +3,20 @@ clc
 clear
 
 FrameLenght = 110;
-SimTime = 100;
-CLK = 0.2;
+SimTime = 0.2;
+CLK = 0.000002;
 
 NodeTiming = 0.01;
 time = NodeTiming / CLK;
 
-ID = [0,0,0,0,0,0,0,0,0,0,0];
+ID =    [1,1,1,1,1,1,1,1,1,0,0];
+ID_Rx = [1,1,1,1,1,1,1,1,0,0,1];
 
 NodesID = [ 0,0,1,1,0,1,1,0,0,1,1
             0,0,1,1,0,1,1,0,0,1,0
             0,0,1,0,0,1,1,0,1,1,0
             0,0,1,1,1,1,1,0,0,1,0
-            1,1,1,1,1,1,1,1,1,0,0
+            1,1,1,1,1,1,1,1,1,1,0
             1,1,1,1,1,1,1,1,1,0,1
             1,1,1,1,1,1,1,1,0,1,1
             1,1,1,1,1,1,1,0,1,1,1
@@ -48,13 +49,79 @@ NodesID = [ 0,0,1,1,0,1,1,0,0,1,1
 %             0,0,0,0,0,0,0,0,0,1,1
 %             0,0,0,0,0,0,0,0,0,1,0
 %             0,0,0,0,0,0,1,1,1,1,1]
-        
 
-BusLoadInserted = 50;
 
 NumOfFrame_Max = SimTime / (CLK * FrameLenght);
 
+BusLoadInserted = 50;
 NumOfFrames = BusLoadInserted / 100 * NumOfFrame_Max;
 RTS_Inc = round(SimTime / CLK / NumOfFrames);
+sim('CAN_Model_v8.slx');
+Res1 = delayCounter(TxTimings, RxTimings, CLK);
+maxV(1) = max(Res1);
+minV(1) = min(Res1);
+meanV(1) = mean(Res1);
+
+BusLoadInserted = 60;
+NumOfFrames = BusLoadInserted / 100 * NumOfFrame_Max;
+RTS_Inc = round(SimTime / CLK / NumOfFrames);
+sim('CAN_Model_v8.slx');
+Res2 = delayCounter(TxTimings, RxTimings, CLK);
+maxV(2) = max(Res2);
+minV(2) = min(Res2);
+meanV(2) = mean(Res2);
+
+BusLoadInserted = 65;
+NumOfFrames = BusLoadInserted / 100 * NumOfFrame_Max;
+RTS_Inc = round(SimTime / CLK / NumOfFrames);
+sim('CAN_Model_v8.slx');
+Res3 = delayCounter(TxTimings, RxTimings, CLK);
+maxV(3) = max(Res3);
+minV(3) = min(Res3);
+meanV(3) = mean(Res3);
+
+BusLoadInserted = 70;
+NumOfFrames = BusLoadInserted / 100 * NumOfFrame_Max;
+RTS_Inc = round(SimTime / CLK / NumOfFrames);
+sim('CAN_Model_v8.slx');
+Res4 = delayCounter(TxTimings, RxTimings, CLK);
+maxV(4) = max(Res4);
+minV(4) = min(Res4);
+meanV(4) = mean(Res4);
+
+BusLoadInserted = 75;
+NumOfFrames = BusLoadInserted / 100 * NumOfFrame_Max;
+RTS_Inc = round(SimTime / CLK / NumOfFrames);
+sim('CAN_Model_v8.slx');
+Res5 = delayCounter(TxTimings, RxTimings, CLK);
+maxV(5) = max(Res5);
+minV(5) = min(Res5);
+meanV(5) = mean(Res5);
+
+BusLoadInserted = 80;
+NumOfFrames = BusLoadInserted / 100 * NumOfFrame_Max;
+RTS_Inc = round(SimTime / CLK / NumOfFrames);
+sim('CAN_Model_v8.slx');
+Res6 = delayCounter(TxTimings, RxTimings, CLK);
+maxV(4) = max(Res4);
+minV(6) = min(Res4);
+meanV(6) = mean(Res6);
+
+BusLoadInserted = 90;
+
+sim('CAN_Model_v8.slx');
+Res5 = delayCounter(TxTimings, RxTimings, CLK);
+maxV(5) = max(Res5);
+minV(5) = min(Res5);
+meanV(5) = mean(Res5);
+
+%%%%%%%%%%%PLOT%%%%%%
+BusLoadV = [50, 60, 70, 80, 90];
+figure(1);
+plot(BusLoadV, maxV)
+figure(2);
+plot(BusLoadV, minV)
+figure(3);
+plot(BusLoadV, meanV)
 
 
