@@ -1,5 +1,3 @@
-clear all
-clc
 
 %% Step 1
 answer1 = inputdlg({'Insert your ID [11 bits]:'}, '?');
