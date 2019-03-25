@@ -21,11 +21,9 @@ timingCanNode_Sender = NodeTiming / CLK;  %[numOfCLKCycles / NodeReadyToSend]
 % 
 % NodesID = matrix(2:end, :);
 %%
-% %%%% SCRIPT %%%%%%%%%%%%%%%%%%%%%%%%
-ID =    [1,1,1,1,1,1,1,1,1,0,0];
-ID_Rx = [1,1,1,1,1,1,1,1,0,0,1];
-
-
+%%%% SCRIPT %%%%%%%%%%%%%%%%%%%%%%%%
+ID =    [1,1,1,1,1,0,0,1,1,1,1];
+ID_Rx = [1,1,1,1,0,0,1,1,1,1,1];
 
 NodesID = [ 0,0,1,1,0,1,1,0,0,1,1
     0,0,1,1,0,1,1,0,0,1,0
@@ -77,7 +75,7 @@ NodesID = [ 0,0,1,1,0,1,1,0,0,1,1
 
 NumOfFrame_Max = SimTime / (CLK * FrameLenght);
 
-BusLoadRespTime = [0, 10, 20, 30, 40, 50, 55, 60, 65, 70, 75, 80, 85];
+BusLoadRespTime = [0, 10, 20, 30, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90];
 
 for i = 1 : length(BusLoadRespTime)
     NumOfFrames = BusLoadRespTime(i) / 100 * NumOfFrame_Max;
@@ -95,6 +93,7 @@ for i = 1 : length(BusLoadRespTime)
     
     jitterMatrix(i,:) = jitterCounter(TxTimings, CLK);
 end
+
 %%%%%%%%%%%PLOT%%%%%%
 figure(1);
 plot(BusLoadRespTime, meanRespTime)
