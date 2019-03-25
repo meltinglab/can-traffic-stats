@@ -77,7 +77,7 @@ if will==0
                 matrixHi(i4,:) = rowHi;
             end
             for i5=1:numHiPr
-                matrixTemp1 = dec2bin(matrixPrInt(i5,1),11);
+                matrixTemp1 = dec2bin(matrixHi(i5,1),11);
                 b = blanks(1); % A blank space to add in between char elements
                 matrixTemp2 = [matrixTemp1(1) b matrixTemp1(2) b matrixTemp1(3) b ...
                     matrixTemp1(4) b matrixTemp1(5) b matrixTemp1(6) b matrixTemp1(7) b...

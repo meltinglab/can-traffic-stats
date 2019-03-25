@@ -11,6 +11,9 @@ NodeTiming = 0.01;   % [s]
 timingCanNode_Sender = NodeTiming / CLK;  %[numOfCLKCycles / NodeReadyToSend]
 
 %%
+%%CHOOSE BETWEEN THE GUI OR THE SCRIPT TO GENERATE CONFIGURATION SETTINGS
+%
+%%
 %%%% USER INTERFACE %%%%%%%%%%%%%%%%
 % run('Interface.m')
 % 
