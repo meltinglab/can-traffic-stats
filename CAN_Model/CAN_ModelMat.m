@@ -49,7 +49,7 @@ BusLoadRespTime = [0, 10, 20, 30, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90];
 for i = 1 : length(BusLoadRespTime)
     NumOfFrames = BusLoadRespTime(i) / 100 * NumOfFrame_Max;
     RTS_Inc = round(SimTime / CLK / NumOfFrames);
-    sim('CAN_Model_v8.slx');
+    sim('CAN_Model.slx');
     RespTime(i, :) = delayCounter(TxTimings, RxTimings, CLK);
     maxRespTime(i,:) = max(RespTime(i, :));
     minRespTime(i,:) = min(RespTime(i, :));
